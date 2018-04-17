@@ -7,7 +7,7 @@ DELTA_T = 1         # years (length of time step, how frequently you look at the
 DISCOUNT = 0.03     # annual discount rate
 
 # transition matrix
-TRANS_MATRIX = [
+Q3_TRANS_MATRIX = [
     [0.75,  0.15,   0.0,    0.1],   # Well
     [0,     0.0,    1.0,    0.0],   # Stroke
     [0,     0.25,   0.55,   0.2],   # Post-Stroke
