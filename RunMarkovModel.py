@@ -46,3 +46,5 @@ Figs.graph_histogram(
     bin_width=1
 )
 
+# print outcomes (means and CIs)
+SupportMarkov.print_outcomes(simOutputs, 'No treatment outcomes are...:')
