@@ -17,5 +17,5 @@ import FigureSupport as Figs
 
 SupportMarkov.report_CEA_CBA(simOutputs_NONE, simOutputs_ANTICOAG)
 print("Please refer to the table for Question 3.")
-print("To answer Question 4, I'd recommend the anticoagulation drug at a WTP anywhere above $9-10,000.")
+print("To answer Question 4, I'd recommend the anticoagulation drug at a WTP anywhere above $20,000ish.")
 
