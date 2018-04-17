@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tues Apr 16 12:08:42 2018
+@author: Aslan
+"""
+
 import InputData as Settings
 import FormatFunctions as F
 import SamplePathClasses as PathCls
