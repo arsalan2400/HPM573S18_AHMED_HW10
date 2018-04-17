@@ -49,10 +49,10 @@ def print_outcomes(simOutput, therapy_name):
     print("")
 
 
-def draw_survival_curves_and_histograms(simOutputs_mono, simOutputs_combo):
+def draw_survival_curves_and_histograms(simOutputs_NONE, simOutputs_ANTICOAG):
     """ draws the survival curves and the histograms of time until HIV deaths
-    :param simOutputs_mono: output of a cohort simulated under mono therapy
-    :param simOutputs_combo: output of a cohort simulated under combination therapy
+    :param simOutputs_NONE: output of a cohort simulated under no therapy
+    :param simOutputs_ANTICOAG: output of a cohort simulated under anticoag therapy
     """
 
     # get survival curves of both treatments
@@ -72,8 +72,8 @@ def draw_survival_curves_and_histograms(simOutputs_mono, simOutputs_combo):
 
     # histograms of survival times
     set_of_survival_times = [
-        simOutputs_mono.get_survival_times(),
-        simOutputs_combo.get_survival_times()
+        simOutputs_NONE.get_survival_times(),
+        simOutputs_ANTICOAG.get_survival_times()
     ]
 
     # graph histograms
@@ -90,12 +90,12 @@ def draw_survival_curves_and_histograms(simOutputs_mono, simOutputs_combo):
 
 def print_comparative_outcomes(simOutputs_NONE, simOutputs_ANTICOAG):
     """ prints average increase in survival time, discounted cost, and discounted utility
-    under combination therapy compared to mono therapy
+    under anti therapy compared to no therapy
     :param simOutputs_NONE: output of a cohort simulated under no therapy
     :param simOutputs_ANTICOAG: output of a cohort simulated under anticoag therapy
     """
 
-    # increase in survival time under combination therapy with respect to mono therapy
+    # increase in survival time under combination therapy with respect to no therapy
     increase_survival_time = Stat.DifferenceStatIndp(
         name='Increase in survival time',
         x=simOutputs_ANTICOAG.get_survival_times(),
@@ -113,7 +113,7 @@ def print_comparative_outcomes(simOutputs_NONE, simOutputs_ANTICOAG):
     
     ###NEW STUFF TO ADD IN######
     
-    # increase in stroke # under combination therapy with respect to mono therapy
+    # increase in stroke # under combination therapy with respect to none therapy
     increase_strokecount  = Stat.DifferenceStatIndp(
         name='Increase in the Expected Number of Strokes',
         x=simOutputs_ANTICOAG.get_if_developed_stroke(),
@@ -129,7 +129,7 @@ def print_comparative_outcomes(simOutputs_NONE, simOutputs_ANTICOAG):
           estimate_CI)
        
     
-    # increase in discounted total cost under combination therapy with respect to mono therapy
+    # increase in discounted total cost under combination therapy with respect to no therapy
     increase_discounted_cost = Stat.DifferenceStatIndp(
         name='Increase in discounted cost with Anticoagulation Therapy',
         x=simOutputs_NONE.get_costs(),
@@ -145,7 +145,7 @@ def print_comparative_outcomes(simOutputs_NONE, simOutputs_ANTICOAG):
           "and {:.{prec}%} confidence interval:".format(1 - Settings.ALPHA, prec=0),
           estimate_CI)
 
-    # increase in discounted total utility under combination therapy with respect to mono therapy
+    # increase in discounted total utility under combination therapy with respect to no therapy
     increase_discounted_utility = Stat.DifferenceStatIndp(
         name='Increase in discounted cost',
         x=simOutputs_NONE.get_utilities(),
@@ -162,10 +162,10 @@ def print_comparative_outcomes(simOutputs_NONE, simOutputs_ANTICOAG):
 
 
 
-def report_CEA_CBA(simOutputs_mono, simOutputs_combo):
+def report_CEA_CBA(simOutputs_NONE, simOutputs_ANTICOAG):
     """ performs cost-effectiveness analysis
-    :param simOutputs_mono: output of a cohort simulated under no therapy
-    :param simOutputs_combo: output of a cohort simulated under anticoag therapy
+    :param simOutputs_none: output of a cohort simulated under no therapy
+    :param simOutputs_ANTICOAG: output of a cohort simulated under anticoag therapy
     """
 
     # define two strategies
@@ -211,7 +211,7 @@ def report_CEA_CBA(simOutputs_mono, simOutputs_combo):
 
     # CBA
     NBA = Econ.CBA(
-        strategies=[mono_therapy_strategy, combo_therapy_strategy],
+        strategies=[NONE_therapy_strategy, ANTICOAG_therapy_strategy],
         if_paired=False
     )
     
