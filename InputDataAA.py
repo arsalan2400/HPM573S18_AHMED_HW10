@@ -14,7 +14,7 @@ Q3_TRANS_MATRIX = [
     [0.0,   0.0,    0.0,    1.0],   # Dead
     ]
 
-# annual health utility of each health state
+# utilities
 ANNUAL_STATE_UTILITY = [
     1,       # Well
     0.8865,  # Stroke
@@ -22,17 +22,17 @@ ANNUAL_STATE_UTILITY = [
     0        # Dead
     ]
 
-# annual cost of each health state
+#costs
 ANNUAL_STATE_COST = [
     0,     # Well
     5000,  # Stroke
     200,   # Post-Stroke
     0      # Dead
     ]
-# anticoagulation relative risk in reducing stroke incidence and stroke death while in “Post-Stroke”
+#RR of death in stroke
 RR_STROKE = 0.65
-# anticoagulation relative risk in increasing mortality due to bleeding is 1.05.
+# anticoag RR
 RR_BLEEDING = 1.05
 
-# annual drug costs
+# drug price
 anticoagulation_COST = 2000.0
