@@ -41,8 +41,8 @@ Figs.graph_histogram(
 Figs.graph_histogram(
     data=simOutputs.get_if_developed_stroke(),
     title='Number of Strokes per Patient',
-    x_label='Strokes',
-    y_label='Counts',
+    x_label='Stroke #',
+    y_label='Patient Counts',
     bin_width=1
 )
 
