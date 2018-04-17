@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Tue Apr 17 13:23:28 2018
+Created on Tue Apr 17 11:23:28 2018
 
 @author: Aslan
 """
@@ -30,9 +30,9 @@ PathCls.graph_sample_path(
 # graph histogram of survival times
 Figs.graph_histogram(
     data=simOutputs.get_survival_times(),
-    title='Survival times of patients with Stroke',
+    title='Survival times of patients who get a Stroke',
     x_label='Survival time (years)',
-    y_label='Counts',
+    y_label='Count',
     bin_width=1
 )
 
@@ -42,8 +42,7 @@ Figs.graph_histogram(
     data=simOutputs.get_if_developed_stroke(),
     title='Number of Strokes per Patient',
     x_label='Stroke #',
-    y_label='Patient Counts',
+    y_label='Count',
     bin_width=1
 )
 
-# print outcomes (means and CIs)
