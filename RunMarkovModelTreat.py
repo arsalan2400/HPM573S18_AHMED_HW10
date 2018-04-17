@@ -45,5 +45,4 @@ Figs.graph_histogram(
     bin_width=1
 )
 
-
 SupportMarkov.print_outcomes(simOutputs, 'Treatment outcomes are....:')
